@@ -17,10 +17,17 @@ test("Verify all the locators", async({page})=>{
     await expect(logo).toBeVisible();
 
     await expect(page.getByText("Welcome to our store")).toBeVisible();
-
     await page.getByRole("link",{name:'Register'}).click();
-
     await expect (page.getByRole("heading", {name:'Register'})).toBeVisible();
+    await page.getByLabel('First name:').fill("Sumit");
+    await page.getByLabel('Last name:').fill("Sonawane");
+    await page.getByLabel('Email:').fill("sumit@gmail.com");
+    await page.getByLabel('Company name:').fill("sumit@gmail.com")
+    await page.getByLabel('Password:').fill("sumit123");
+    await page.getByLabel('Confirm password:').fill("sumit123");
+    await page.getByRole('button', {name: 'Register'}).click();
+    await expect(page.getByText('Your registration completed')).toBeVisible();
+    await page.getByPlaceholder('Search store').fill("Samsung Galaxy S24");
 
 
 });
