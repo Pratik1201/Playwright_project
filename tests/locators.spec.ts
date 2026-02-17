@@ -18,5 +18,9 @@ test("Verify all the locators", async({page})=>{
 
     await expect(page.getByText("Welcome to our store")).toBeVisible();
 
+    await page.getByRole("link",{name:'Register'}).click();
+
+    await expect (page.getByRole("heading", {name:'Register'})).toBeVisible();
+
 
 });
