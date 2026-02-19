@@ -22,12 +22,10 @@ test("Verify all the locators", async({page})=>{
     await page.getByLabel('First name:').fill("Sumit");
     await page.getByLabel('Last name:').fill("Sonawane");
     await page.getByLabel('Email:').fill("sumit@gmail.com");
-    await page.getByLabel('Company name:').fill("sumit@gmail.com")
-    await page.getByLabel('Password:').fill("sumit123");
-    await page.getByLabel('Confirm password:').fill("sumit123");
-    await page.getByRole('button', {name: 'Register'}).click();
-    await expect(page.getByText('Your registration completed')).toBeVisible();
     await page.getByPlaceholder('Search store').fill("Samsung Galaxy S24");
+
+    await page.goto("https://demo.nopcommerce.com/register");
+    await expect (page.getByTitle('title')).toHaveText("Company Details");
 
 
 });
